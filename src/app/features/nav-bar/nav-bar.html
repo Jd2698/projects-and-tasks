@@ -2,10 +2,27 @@
   <!-- <button mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button> -->
-  <span>Mi App</span>
+  <span>Porjects and Tasks</span>
   <span class="spacer"></span>
-  <button mat-button routerLink="/projects">Projects</button>
-  <button mat-button>Acerca de</button>
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button>Logout</button>
+  <button
+    mat-button
+    routerLink="/projects"
+    [class]="!authService.isAuthenticatedSignal() ? 'hidden': ''"
+  >
+    Projects
+  </button>
+  <button
+    mat-button
+    routerLink="/login"
+    [class]="authService.isAuthenticatedSignal() ? 'hidden': ''"
+  >
+    Login
+  </button>
+  <button
+    mat-button
+    (click)="onLogout()"
+    [class]="!authService.isAuthenticatedSignal() ? 'hidden': ''"
+  >
+    Logout
+  </button>
 </mat-toolbar>
