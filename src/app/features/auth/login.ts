@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Auth } from '../../core/services/auth';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {
   FormBuilder,
@@ -19,7 +18,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule,
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',
@@ -39,7 +37,7 @@ export class Login {
     });
   }
 
-  openSnackBar(message: string) {
+  showSnackBar(message: string) {
     this._snackBar.open(message, '', {
       duration: 2000,
       horizontalPosition: 'end',
@@ -53,7 +51,7 @@ export class Login {
     const res = this.authService.login(username, password);
 
     if (res?.error) {
-      this.openSnackBar(res.error);
+      this.showSnackBar(res.error);
     }
   }
 }

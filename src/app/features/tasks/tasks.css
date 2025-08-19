@@ -1,0 +1,20 @@
+.section-header {
+  display: flex;
+  max-width: 900px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.table-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: #eee;
+}

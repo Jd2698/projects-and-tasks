@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Project, ProjectsService } from './services/projects.service';
-import { RouterLink } from "../../../../node_modules/@angular/router/router_module.d";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-projects',

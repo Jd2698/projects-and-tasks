@@ -1,0 +1,55 @@
+<section>
+  <div class="section-header">
+    <h2>Tareas</h2>
+
+    <button
+      matButton="elevated"
+      [routerLink]="['/project', projectId, 'task', 'form']"
+    >
+      Agregar tarea
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8 demo-table">
+      <!-- Título Column -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef>Título</th>
+        <td mat-cell *matCellDef="let element">{{element.titulo}}</td>
+      </ng-container>
+
+      <!-- Estado Column -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let element">
+          <span
+            class="estado"
+            [style]="{'color': element.estado == 'completada' ? '#393' : '#c44'}"
+          >
+            {{element.estado}}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton="text" (click)="openConfirmDialog(element.id)">
+            Eliminar
+          </button>
+
+          <button
+            matButton="tonal"
+            [routerLink]="['/project', projectId, 'task', element.id, 'form']"
+          >
+            Editar
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</section>

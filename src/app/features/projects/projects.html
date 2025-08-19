@@ -1,7 +1,11 @@
 <h1 style="text-align: center">Projects</h1>
 
 <section class="projects-container">
-  <div *ngFor="let project of projects" class="project">
+  <div
+    *ngFor="let project of projects"
+    class="project"
+    [routerLink]="['/tasks', 'project', project.id]"
+  >
     <h3>{{project.titulo}}</h3>
     <p>{{project.descripcion}}</p>
   </div>

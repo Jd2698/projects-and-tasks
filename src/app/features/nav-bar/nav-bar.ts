@@ -9,7 +9,7 @@ import { Auth } from '../../core/services/auth';
   selector: 'app-nav-bar',
   imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink],
   templateUrl: './nav-bar.html',
-  styleUrls: ['./nav-bar.css', '../../app.css'],
+  styleUrls: ['../../app.css'],
 })
 export class NavBar {
   constructor(readonly authService: Auth) {}
