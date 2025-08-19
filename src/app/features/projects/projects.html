@@ -1,12 +1,32 @@
-<h1 style="text-align: center">Projects</h1>
+<section>
+  <div class="section-header">
+    <h2>Proyectos</h2>
 
-<section class="projects-container">
-  <div
-    *ngFor="let project of projects"
-    class="project"
-    [routerLink]="['/tasks', 'project', project.id]"
-  >
-    <h3>{{project.titulo}}</h3>
-    <p>{{project.descripcion}}</p>
+    <button matButton="elevated" [routerLink]="['form']">
+      Agregar proyecto
+    </button>
+  </div>
+
+  <div class="projects-container">
+    <div *ngFor="let project of projects; trackBy: trackById" class="project">
+      <h3>{{project.titulo}}</h3>
+      <p>{{project.descripcion}}</p>
+
+      <button matButton="text" (click)="openConfirmDialog(project.id)">
+        Eliminar
+      </button>
+
+      <button matButton="text" [routerLink]="[project.id, 'form']">
+        Editar
+      </button>
+
+      <button
+        matButton="text"
+        [routerLink]="['/projects', project.id, 'tasks']"
+        style="width: 100%"
+      >
+        Ver tareas
+      </button>
+    </div>
   </div>
 </section>

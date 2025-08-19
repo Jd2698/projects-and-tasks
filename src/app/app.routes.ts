@@ -14,18 +14,30 @@ export const routes: Routes = [
       import('./features/projects/projects').then((m) => m.Projects),
   },
   {
-    path: 'tasks/project/:projectId',
+    path: 'projects/form',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/projects/form/form').then((m) => m.Form),
+  },
+  {
+    path: 'projects/:projectId/form',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/projects/form/form').then((m) => m.Form),
+  },
+  {
+    path: 'projects/:projectId/tasks',
     canActivate: [authGuard],
     loadComponent: () => import('./features/tasks/tasks').then((m) => m.Tasks),
   },
   {
-    path: 'project/:projectId/task/form',
+    path: 'projects/:projectId/tasks/form',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/tasks/form/form').then((m) => m.Form),
   },
   {
-    path: 'project/:projectId/task/:taskId/form',
+    path: 'projects/:projectId/tasks/:taskId/form',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/tasks/form/form').then((m) => m.Form),

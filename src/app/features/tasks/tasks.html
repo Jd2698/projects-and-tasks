@@ -4,7 +4,7 @@
 
     <button
       matButton="elevated"
-      [routerLink]="['/project', projectId, 'task', 'form']"
+      [routerLink]="['/projects', projectId, 'tasks', 'form']"
     >
       Agregar tarea
     </button>
@@ -41,7 +41,7 @@
 
           <button
             matButton="tonal"
-            [routerLink]="['/project', projectId, 'task', element.id, 'form']"
+            [routerLink]="['/projects', projectId, 'tasks', element.id, 'form']"
           >
             Editar
           </button>

@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-tasks',
   imports: [MatTableModule, MatButtonModule, RouterLink],
   templateUrl: './tasks.html',
-  styleUrl: './tasks.css',
+  styleUrls: ['./tasks.css', '../../app.css'],
 })
 export class Tasks implements OnInit {
   @Input() projectId: string = '';
@@ -29,6 +29,9 @@ export class Tasks implements OnInit {
     this._taskService.getAll(Number(this.projectId)).subscribe({
       next: (data) => {
         this.tasks = data;
+      },
+      error: (err) => {
+        this.showSnackBar(err);
       },
     });
   }
@@ -49,6 +52,9 @@ export class Tasks implements OnInit {
         this._taskService.delete(taskId).subscribe({
           next: () => {
             this.showSnackBar('successfully deleted!!');
+          },
+          error: (err) => {
+            this.showSnackBar(err);
           },
         });
       }

@@ -2,6 +2,19 @@
   display: none;
 }
 
+.section-header {
+  display: flex;
+  max-width: 900px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+}
+
 .form-container {
   max-width: 400px;
   margin: 50px auto;

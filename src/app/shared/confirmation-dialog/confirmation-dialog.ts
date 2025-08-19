@@ -6,7 +6,6 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
   selector: 'app-confirmation-dialog',
   imports: [MatDialogModule, MatButtonModule],
   templateUrl: './confirmation-dialog.html',
-  styleUrl: './confirmation-dialog.css',
 })
 export class ConfirmationDialog {
   constructor(public dialogRef: MatDialogRef<ConfirmationDialog>) {}

@@ -49,8 +49,8 @@ export class Auth {
 
   logout() {
     if (this.checkAuth()) {
-      localStorage.setItem('auth', 'false');
       this.isAuthenticatedSignal.set(false);
+      localStorage.setItem('auth', 'false');
       this._router.navigate(['/login']);
     }
   }

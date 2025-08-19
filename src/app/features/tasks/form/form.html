@@ -1,12 +1,16 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-container">
   <h2>{{ taskId ? 'Actualizar tarea' : 'Crear tarea'}}</h2>
   <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
+    <mat-label>Título</mat-label>
     <input matInput formControlName="titulo" autofocus />
+
+    @if (get('titulo')?.hasError('required') && get('titulo')?.touched) {
+    <mat-error>Titulo es requerido</mat-error>
+    }
   </mat-form-field>
 
   <mat-checkbox
-    [checked]="selected === 'completada'"
+    [checked]="get('estado')?.value === 'completada'"
     (change)="onCheckboxChange('completada')"
     value="completada"
   >
@@ -14,14 +18,14 @@
   </mat-checkbox>
 
   <mat-checkbox
-    [checked]="selected === 'no completada'"
+    [checked]="get('estado')?.value === 'no completada'"
     (change)="onCheckboxChange('no completada')"
   >
     No completada
   </mat-checkbox>
 
   <div class="buttons-container">
-    <button matButton="tonal" [routerLink]="['/tasks', 'project', projectId]">
+    <button matButton="tonal" [routerLink]="['/projects',  projectId, 'tasks']">
       volver
     </button>
 

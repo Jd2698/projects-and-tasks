@@ -1,0 +1,33 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-container">
+  <h2>{{ projectId ? 'Actualizar proyecto' : 'Crear proyecto'}}</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="titulo" autofocus />
+
+    @if (get('titulo')?.hasError('required') && get('titulo')?.touched) {
+    <mat-error>Titulo es requerido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <input matInput formControlName="descripcion" autofocus />
+
+    @if (get('descripcion')?.hasError('required') &&
+    get('descripcion')?.touched) {
+    <mat-error>Descripción es requerido</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="buttons-container">
+    <button matButton="tonal" [routerLink]="['/projects']">volver</button>
+
+    <button
+      matButton="filled"
+      type="submit"
+      [disabled]="!formGroup.valid ? true: false"
+    >
+      {{ projectId ? 'Actualizar' : 'Crear'}}
+    </button>
+  </div>
+</form>

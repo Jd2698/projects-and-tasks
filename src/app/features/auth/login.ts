@@ -32,9 +32,14 @@ export class Login {
     private _snackBar: MatSnackBar
   ) {
     this.formGroup = formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required]],
+      username: ['admin', [Validators.required, Validators.minLength(3)]],
+      password: ['admin123', [Validators.required]],
     });
+  }
+
+  // para obtener el objeto control pasandole el nombre
+  get(name: string) {
+    return this.formGroup.get(name);
   }
 
   showSnackBar(message: string) {

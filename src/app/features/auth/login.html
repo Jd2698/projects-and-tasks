@@ -8,21 +8,23 @@
       formControlName="username"
       autofocus
     />
-    @if (formGroup.get('username')?.hasError('required') &&
-    formGroup.get('username')?.touched) {
+    @if (get('username')?.hasError('required') && get('username')?.touched) {
     <mat-error>Username is required</mat-error>
-    } @if(formGroup.get('username')?.hasError('minlength') &&
-    formGroup.get('username')?.touched){
+    } @if(get('username')?.hasError('minlength') && get('username')?.touched){
     <mat-error>MinLength is 3</mat-error>
     }
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Password</mat-label>
-    <input matInput type="password" formControlName="password" />
+    <input
+      matInput
+      type="password"
+      formControlName="password"
+      placeholder="default: admin123"
+    />
 
-    @if (formGroup.get('password')?.hasError('required') &&
-    formGroup.get('password')?.touched) {
+    @if (get('password')?.hasError('required') && get('password')?.touched) {
     <mat-error>Password is required</mat-error>
     }
   </mat-form-field>
