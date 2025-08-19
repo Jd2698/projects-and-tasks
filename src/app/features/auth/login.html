@@ -1,0 +1,31 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-container">
+  <h2>Welcome again!</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      placeholder="default: admin"
+      formControlName="username"
+      autofocus
+    />
+    @if (formGroup.get('username')?.hasError('required') &&
+    formGroup.get('username')?.touched) {
+    <mat-error>Username is required</mat-error>
+    } @if(formGroup.get('username')?.hasError('minlength') &&
+    formGroup.get('username')?.touched){
+    <mat-error>MinLength is 3</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" />
+
+    @if (formGroup.get('password')?.hasError('required') &&
+    formGroup.get('password')?.touched) {
+    <mat-error>Password is required</mat-error>
+    }
+  </mat-form-field>
+
+  <button matButton="tonal">Login</button>
+</form>
