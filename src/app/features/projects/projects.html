@@ -1,1 +1,8 @@
-<p>projects works!</p>
+<h1 style="text-align: center">Projects</h1>
+
+<section class="projects-container">
+  <div *ngFor="let project of projects" class="project">
+    <h3>{{project.titulo}}</h3>
+    <p>{{project.descripcion}}</p>
+  </div>
+</section>

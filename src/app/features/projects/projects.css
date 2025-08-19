@@ -1,0 +1,22 @@
+.projects-container {
+  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
+  .project {
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    padding: 10px;
+    cursor: pointer;
+
+    transition: transform 300ms;
+  }
+
+  .project:hover {
+    transform: scale(1.05);
+  }
+}
