@@ -9,6 +9,4 @@ import { NavBar } from './features/nav-bar/nav-bar';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  protected title = 'projects-and-tasks';
-}
+export class App {}

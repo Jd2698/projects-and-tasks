@@ -2,6 +2,10 @@
   display: none;
 }
 
+section {
+  padding: 2rem;
+}
+
 .section-header {
   display: flex;
   max-width: 900px;

@@ -4,20 +4,20 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+}
 
-  .project {
-    font-size: 17px;
-    width: 200px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #eaeaea;
-    padding: 10px;
-    cursor: pointer;
+.project {
+  font-size: 17px;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  padding: 10px;
+  cursor: pointer;
 
-    transition: transform 300ms;
-  }
+  transition: transform 300ms;
+}
 
-  .project:hover {
-    transform: scale(1.05);
-  }
+.project:hover {
+  transform: scale(1.05);
 }
