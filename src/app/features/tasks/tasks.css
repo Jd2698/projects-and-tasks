@@ -1,6 +1,8 @@
 .table-container {
   max-width: 900px;
   margin: auto;
+  height: 70vh;
+  overflow: scroll;
 }
 
 .mat-mdc-row .mat-mdc-cell {
@@ -10,4 +12,8 @@
 
 .mat-mdc-row:hover .mat-mdc-cell {
   background-color: #eee;
+}
+
+.table-container .head {
+  font-weight: bold;
 }
