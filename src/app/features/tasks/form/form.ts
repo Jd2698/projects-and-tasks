@@ -89,9 +89,6 @@ export class Form implements OnInit {
           this.showSnackBar('successfully created!!');
           this._router.navigate(['./projects', this.projectId, 'tasks']);
         },
-        error: (err) => {
-          this.showSnackBar(err);
-        },
       });
     } else {
       data.id = this.taskId;
@@ -99,9 +96,6 @@ export class Form implements OnInit {
         next: () => {
           this.showSnackBar('successfully updated!!');
           this._router.navigate(['./projects', this.projectId, 'tasks']);
-        },
-        error: (err) => {
-          this.showSnackBar(err);
         },
       });
     }

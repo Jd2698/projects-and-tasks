@@ -54,9 +54,6 @@ export class Form {
             });
           }
         },
-        error: (err) => {
-          this.showSnackBar(err);
-        },
       });
     }
   }
@@ -83,9 +80,6 @@ export class Form {
           this.showSnackBar('successfully created!!');
           this._router.navigate(['./projects']);
         },
-        error: (err) => {
-          this.showSnackBar(err);
-        },
       });
     } else {
       data.id = this.projectId;
@@ -93,9 +87,6 @@ export class Form {
         next: () => {
           this.showSnackBar('successfully updated!!');
           this._router.navigate(['./projects']);
-        },
-        error: (err) => {
-          this.showSnackBar(err);
         },
       });
     }

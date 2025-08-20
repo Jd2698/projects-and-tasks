@@ -27,9 +27,6 @@ export class Projects implements OnInit {
       next: (data) => {
         this.projects = data;
       },
-      error: (err) => {
-        this.showSnackBar(err);
-      },
     });
   }
 
@@ -53,9 +50,6 @@ export class Projects implements OnInit {
         this._projectService.delete(projectId).subscribe({
           next: () => {
             this.showSnackBar('successfully deleted!!');
-          },
-          error: (err) => {
-            this.showSnackBar(err);
           },
         });
       }

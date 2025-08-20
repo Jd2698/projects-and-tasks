@@ -30,9 +30,6 @@ export class Tasks implements OnInit {
       next: (data) => {
         this.tasks = data;
       },
-      error: (err) => {
-        this.showSnackBar(err);
-      },
     });
   }
 
@@ -52,9 +49,6 @@ export class Tasks implements OnInit {
         this._taskService.delete(taskId).subscribe({
           next: () => {
             this.showSnackBar('successfully deleted!!');
-          },
-          error: (err) => {
-            this.showSnackBar(err);
           },
         });
       }
