@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TasksService } from '../services/tasks.service';
 import { Router, RouterLink } from '@angular/router';
+import { SnackBarService } from '../../../core/services/snack-bar.service';
 
 @Component({
   selector: 'app-form',
@@ -35,12 +36,12 @@ export class Form implements OnInit {
   constructor(
     private readonly _taskService: TasksService,
     private readonly _formBuilder: FormBuilder,
-    private readonly _snackBar: MatSnackBar,
+    private readonly _snackBarService: SnackBarService,
     private readonly _router: Router
   ) {
     this.formGroup = _formBuilder.group({
       titulo: ['', [Validators.required, Validators.minLength(3)]],
-      estado: ['', [Validators.required]],
+      estado: ['completada', [Validators.required]],
     });
   }
 
@@ -72,21 +73,13 @@ export class Form implements OnInit {
       ?.setValue(currentValue === estado ? null : estado);
   }
 
-  showSnackBar(message: string) {
-    this._snackBar.open(message, '', {
-      duration: 2000,
-      horizontalPosition: 'end',
-      verticalPosition: 'bottom',
-    });
-  }
-
   onSubmit() {
     const data = { ...this.formGroup.value, projectId: this.projectId };
 
     if (!this.taskId) {
       this._taskService.create(data).subscribe({
         next: () => {
-          this.showSnackBar('successfully created!!');
+          this._snackBarService.showSnackBar('successfully created!!');
           this._router.navigate(['./projects', this.projectId, 'tasks']);
         },
       });
@@ -94,7 +87,7 @@ export class Form implements OnInit {
       data.id = this.taskId;
       this._taskService.update(data).subscribe({
         next: () => {
-          this.showSnackBar('successfully updated!!');
+          this._snackBarService.showSnackBar('successfully updated!!');
           this._router.navigate(['./projects', this.projectId, 'tasks']);
         },
       });

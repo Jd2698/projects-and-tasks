@@ -1,12 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarService } from './snack-bar.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorHandlerService {
-  constructor(private readonly _snackBar: MatSnackBar) {}
+  constructor(private readonly _snackBar: SnackBarService) {}
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Algo salió mal. Intenta de nuevo más tarde.';
@@ -24,6 +24,6 @@ export class ErrorHandlerService {
       }
     }
 
-    this._snackBar.open(errorMessage, 'Cerrar', { duration: 3000 });
+    this._snackBar.showSnackBar(errorMessage, 'center', 3000, true);
   }
 }
