@@ -5,7 +5,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +12,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TasksService } from '../services/tasks.service';
 import { Router, RouterLink } from '@angular/router';
 import { SnackBarService } from '../../../core/services/snack-bar.service';
+import { StatusValidator } from '../validators/status.validator';
+import { noWhitespaceValidator } from '../../../shared/validators/no-whitespace.validator';
 
 @Component({
   selector: 'app-form',
@@ -40,8 +41,8 @@ export class Form implements OnInit {
     private readonly _router: Router
   ) {
     this.formGroup = _formBuilder.group({
-      titulo: ['', [Validators.required, Validators.minLength(3)]],
-      estado: ['completada', [Validators.required]],
+      titulo: ['', [Validators.required, noWhitespaceValidator()]],
+      estado: ['completada', [Validators.required, StatusValidator()]],
     });
   }
 

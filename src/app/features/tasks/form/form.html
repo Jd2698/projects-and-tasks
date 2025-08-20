@@ -4,7 +4,8 @@
     <mat-label>Título</mat-label>
     <input matInput formControlName="titulo" autofocus />
 
-    @if (get('titulo')?.hasError('required') && get('titulo')?.touched) {
+    @if ((get('titulo')?.hasError('required') ||
+    get('titulo')?.hasError('whitespace')) && get('titulo')?.touched) {
     <mat-error>Titulo es requerido</mat-error>
     }
   </mat-form-field>
@@ -23,6 +24,10 @@
   >
     No completada
   </mat-checkbox>
+
+  @if (get('estado')?.hasError('invalidStatus')) {
+  <mat-error style="margin-left: 10px">Estado es no valido</mat-error>
+  }
 
   <div class="buttons-container">
     <button matButton="tonal" [routerLink]="['/projects',  projectId, 'tasks']">

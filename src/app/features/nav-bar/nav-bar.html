@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
-  <span style="margin-right: 10px">Proyectos y Tareas</span>
+  <span style="margin-right: 10px">Projects and Tasks</span>
   <button
     mat-button
     routerLink="/projects"
     [class]="!authService.isAuthenticatedSignal() ? 'hidden': ''"
   >
-    Projects
+    Proyectos
   </button>
   <button
     mat-button

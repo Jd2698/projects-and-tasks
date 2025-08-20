@@ -17,3 +17,6 @@ Este proyecto permite gestionar proyectos y tareas utilizando una API externa de
 # Dependencias
 
 * **Angular Material**: Para componentes UI preconstruidos.
+
+# App
+![image showing app](public/app.jpg)

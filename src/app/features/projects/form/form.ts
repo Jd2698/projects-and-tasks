@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SnackBarService } from '../../../core/services/snack-bar.service';
+import { noWhitespaceValidator } from '../../../shared/validators/no-whitespace.validator';
 
 @Component({
   selector: 'app-form',
@@ -38,8 +39,8 @@ export class Form {
     private readonly _router: Router
   ) {
     this.formGroup = _formBuilder.group({
-      titulo: ['', [Validators.required, Validators.minLength(3)]],
-      descripcion: ['', [Validators.required]],
+      titulo: ['', [Validators.required, noWhitespaceValidator()]],
+      descripcion: ['', [Validators.required, noWhitespaceValidator()]],
     });
   }
 

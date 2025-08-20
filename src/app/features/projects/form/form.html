@@ -4,7 +4,8 @@
     <mat-label>Título</mat-label>
     <input matInput formControlName="titulo" autofocus />
 
-    @if (get('titulo')?.hasError('required') && get('titulo')?.touched) {
+    @if ((get('titulo')?.hasError('required') ||
+    get('titulo')?.hasError('whitespace')) && get('titulo')?.touched) {
     <mat-error>Titulo es requerido</mat-error>
     }
   </mat-form-field>
@@ -13,8 +14,9 @@
     <mat-label>Descripción</mat-label>
     <input matInput formControlName="descripcion" autofocus />
 
-    @if (get('descripcion')?.hasError('required') &&
-    get('descripcion')?.touched) {
+    @if ((get('descripcion')?.hasError('required') ||
+    get('descripcion')?.hasError('whitespace')) && get('descripcion')?.touched)
+    {
     <mat-error>Descripción es requerido</mat-error>
     }
   </mat-form-field>
