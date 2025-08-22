@@ -10,6 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { noWhitespaceValidator } from '../../shared/validators/no-whitespace.validator';
 
 @Component({
   selector: 'app-login',
@@ -32,8 +33,8 @@ export class Login {
     private _snackBar: MatSnackBar
   ) {
     this.formGroup = formBuilder.group({
-      username: ['admin', [Validators.required, Validators.minLength(3)]],
-      password: ['admin123', [Validators.required]],
+      username: ['admin', [Validators.required, noWhitespaceValidator()]],
+      password: ['admin123', [Validators.required, noWhitespaceValidator()]],
     });
   }
 

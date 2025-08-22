@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-container">
   <h2>Bienvenido a Projects and Tasks</h2>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Usuario</mat-label>
     <input
       matInput
@@ -8,14 +8,13 @@
       formControlName="username"
       autofocus
     />
-    @if (get('username')?.hasError('required') && get('username')?.touched) {
+    @if ((get('username')?.hasError('required') ||
+    get('username')?.hasError('whitespace')) && get('username')?.touched) {
     <mat-error>Username is required</mat-error>
-    } @if(get('username')?.hasError('minlength') && get('username')?.touched){
-    <mat-error>MinLength is 3</mat-error>
     }
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>Contraseña</mat-label>
     <input
       matInput
@@ -24,10 +23,13 @@
       placeholder="default: admin123"
     />
 
-    @if (get('password')?.hasError('required') && get('password')?.touched) {
+    @if ((get('password')?.hasError('required') ||
+    get('password')?.hasError('whitespace')) && get('password')?.touched) {
     <mat-error>Password is required</mat-error>
     }
   </mat-form-field>
 
-  <button type="submit" matButton="tonal">Iniciar sesión</button>
+  <button type="submit" matButton="filled" style="border-radius: 5px">
+    Iniciar sesión
+  </button>
 </form>

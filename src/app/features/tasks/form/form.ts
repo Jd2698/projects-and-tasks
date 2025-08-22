@@ -75,6 +75,8 @@ export class Form implements OnInit {
   }
 
   onSubmit() {
+    if (!this.formGroup.valid) return;
+
     const data = { ...this.formGroup.value, projectId: this.projectId };
 
     if (!this.taskId) {

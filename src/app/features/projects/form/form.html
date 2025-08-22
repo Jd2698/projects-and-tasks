@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-container">
   <h2>{{ projectId ? 'Actualizar proyecto' : 'Crear proyecto'}}</h2>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Título</mat-label>
     <input matInput formControlName="titulo" autofocus />
 
@@ -10,7 +10,7 @@
     }
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Descripción</mat-label>
     <input matInput formControlName="descripcion" autofocus />
 
@@ -22,12 +22,19 @@
   </mat-form-field>
 
   <div class="buttons-container">
-    <button matButton="tonal" [routerLink]="['/projects']">volver</button>
+    <button
+      matButton="text"
+      [routerLink]="['/projects']"
+      class="button-radius"
+    >
+      volver
+    </button>
 
     <button
       matButton="filled"
       type="submit"
       [disabled]="!formGroup.valid ? true: false"
+      class="button-radius"
     >
       {{ projectId ? 'Actualizar' : 'Crear'}}
     </button>
