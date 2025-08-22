@@ -5,8 +5,8 @@ Este proyecto permite gestionar proyectos y tareas utilizando una API externa de
 
 ## 🚀 Netlify
 
-> [ jd2698-projects-and-tasks.netlify.app/](https://jd2698-projects-and-tasks.netlify.app/)
-
+<!-- > [ jd2698-projects-and-tasks.netlify.app/](https://jd2698-projects-and-tasks.netlify.app/) -->
+> <a href="https://jd2698-projects-and-tasks.netlify.app/" target="_blank">jd2698-projects-and-tasks.netlify.app/</a>
 
 # Dev
 
