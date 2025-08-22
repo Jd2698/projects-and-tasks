@@ -40,7 +40,7 @@ export class Auth {
 
   checkAuth(): boolean {
     const auth = localStorage.getItem('auth');
-    if (auth && auth !== 'true') {
+    if (!auth || auth !== 'true') {
       return false;
     }
 

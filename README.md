@@ -1,7 +1,12 @@
 Este proyecto permite gestionar proyectos y tareas utilizando una API externa de ejemplo. Permite visualizar, editar y eliminar tareas y proyectos (aunque las acciones de edición y eliminación son simuladas).
 
-* **Referencia a proyectos**: https://jsonplaceholder.typicode.com/users
-* **Referencia a tareas**: https://jsonplaceholder.typicode.com/todos
+- **Referencia a proyectos**: https://jsonplaceholder.typicode.com/users
+- **Referencia a tareas**: https://jsonplaceholder.typicode.com/todos
+
+## 🚀 Netlify
+
+> [ jd2698-projects-and-tasks.netlify.app/](https://jd2698-projects-and-tasks.netlify.app/)
+
 
 # Dev
 
@@ -16,7 +21,8 @@ Este proyecto permite gestionar proyectos y tareas utilizando una API externa de
 
 # Dependencias
 
-* **Angular Material**: Para componentes UI preconstruidos.
+- **Angular Material**: Para componentes UI preconstruidos.
 
 # App
+
 ![image showing app](public/app.jpg)
